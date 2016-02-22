@@ -9,4 +9,4 @@ WRFL ist eine Installation, welche Tradition (Würfel) und Moderne (Internet) mi
 
 ## Software
 * Python
-* Raspicam-Python
+* picamera
