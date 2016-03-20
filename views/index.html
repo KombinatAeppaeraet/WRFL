@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <title>Kombinat Äppärät - WRFL</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href='https://fonts.googleapis.com/css?family=Warnes' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../css/wrfl.css">
+    <link rel="stylesheet" href="../css/shake-slow.css">
+</head>
+<body>
+<span id="top"></span>
+<h1>Kombinat Äppärät</h1>
+<h3>Installation - <span class="h3special">WRFL://</span></h3>
+
+<br>
+
+<div class="wrfl-image-container animated  zoomIn">
+    <img onerror="this.style.display='none'" id="wrflpic" class="wrfl-image" src="../img/w.jpg?t2={{timestamp}}&pip={{pip}}">
+</div>
+<br>
+
+<form id="wrflfrm" class="wrflfrm" action="/wrfl">
+    <button class="btn" id="wrflbtn">Rip. Mix. Burn.</button>
+</form>
+
+<br>
+
+<div id="toggleinfo" class="infoteaser">Infos zu <b><i>WRFL://</i></b></div>
+<div id="info" class="info" style="display: none">
+    Der relative Bedeutungsverlust des Realen manifestiert sich im Aufstieg des Cyberspace und der abnehmenden Wichtigkeit physischer Orte.
+    <p></p>
+    Das Zeitalter der Aufklärung ist gescheitert, die Rückbesinnung auf grundlegende Bedürfnisse verdeckt die transaktionszentrierte Realität der modernen Gesellschaft.
+    <p></p>
+    Um dieses Spannungsfeld aufzuzeigen und aufzulösen, hat das Kombinat Äppärät die Re-Intermediation des Zufalls in eine Installation gewandelt und haptisch erfahrbar gemacht. Tradition und Moderne werden auf spielerische Art miteinander verschmolzen.
+    <p></p>
+    Würfel sind die ältesten bekannten Spielzeuge - das Internet gibt es erst seit wenigen Jahren. Die Installation <i><b>WRFL://</b></i> des Kombinats Äppärät bringt beides zusammen: eine Synthese zwischen Wirtshaus und Cyberspace - Vergangenheit und Zukunft.
+    <p></p>
+    Mit einem Würfel mechanisch erzeugte Zufallszahlen werden in ein kybernetisches System eingespeist, maschinell verwertet und über die Kanäle der neuen Medien wieder ausgespielt. Der physikalische Ort der Installation spielt dabei keine Rolle, da sie im Internet virtuell verortet ist. Auch räumlich nicht anwesende Zuschauer können teilhaben und die Installation übers Internet bedienen.
+    <p></p>
+    Dadurch zitiert die multimediale Full-Cyber-Integration die Werkzeuge des frühen und des modernen Homo Ludens und macht sie durch Kombination und Interaktionen greifbar.
+    <p></p>
+    Die Angst des Würflers vor dem Doppelpasch wird durch Automatisierung und Serialisierung überwunden. Die Schwelle, um ins Geschehen einzugreifen, reduziert sich auf einen Klick in einer Website. Ergebnisse des Würfelns werden getwittert, visuell und per Computerstimme zum Ausdruck gebracht. Die mechanisch erzeugten Zufallszahlen werden in die weltweite Netzmaschine transferiert, das Private ist damit öffentlich. Die Installation besteht aus Gegenständen, wie sie in vielen Geräten und Spielzeugen vorhanden sind, befreit sie vom ursprünglichen Zweck und re-kombiniert sie zu einem neuen Ganzen. Auf einer Grundplatte ist dabei ein Modellbauservo, ein kleiner Computer, eine Kamera, ein Schnapsglas und eine Lampe miteinander und mit dem Internet verbunden.
+    <p></p>
+    Das Fehlen von Gehäusen ermöglicht es dem Betrachter, die Funktion zu sehen, ohne sich von der Form stören zu lassen. Zum Leben erweckt wird die Installation durch Software. "Software is eating the world" behauptet der Internet-Pionier Marc Andreessen - wie wahr: Software bestimmt inzwischen das Schicksal von Autokonzernen, Logistik- Unternehmen und entscheidet sogar zwischen Leben und Tod.
+    <p></p>
+    Software kann geändert, erweitert und angepasst werden. Software- Updates ermöglichen neue Funktionen, an die zunächst keiner gedacht hat - der Triumph des Geistes über das Körperliche.
+    <p></p>
+    Der Programmcode, das eigentliche "Intellectual Property" ist vom Kombinat Äppärät für jedermann als Download verfügbar. Dieser Code ist eine eigene Art der Poesie an der Schnittstelle zwischen Realität und Virtualität, eine Manifestation der Möglichkeiten.
+    <p></p>
+    <span class="smallkombinat">Kombinat Äppärät</span>
+    <br>Das Kombinat Äppärät lässt die Werke sprechen, Künstler bleiben im Hintergrund, sie sind für das Werk nicht mehr relevant. Äppärät re- kombiniert Hardware, re-mixed sie mit Software, die dann öffentlich verfügbar gemacht wird. Rip. Mix. Burn.
+
+    <p></p><p></p>
+    <i>Links:</i><br>
+    <ul>
+        <li><a href="https://twitter.com/KombinatApparat" target="_blank">Kombinat Äppärät bei Twitter</a></li>
+        <li><a href="https://www.youtube.com/channel/UCJF3q1sb_H9I976jj5VDI3A" target="_blank">Kombinat Äppärät Youtube-Channel</a></li>
+        <li><a href="https://github.com/KombinatAeppaeraet/WRFL/raw/master/book/pdf/wrfl_0.pdf" target="_blank">Das Äppärät Buch zum Download</a></li>
+        <li><a href="https://github.com/KombinatAeppaeraet/WRFL" target="_blank">Download Programmcode</a></li>
+        <li><a href="http://www.wsj.com/articles/SB10001424053111903480904576512250915629460" target="_blank">Marc Andreessen: "Why software is eating the world"</a></li>
+    </ul>
+</div>
+
+<script>
+
+    (function(){
+
+        'use strict';
+
+
+        var AJAX = {
+            get: function(url, data, success, fail, startCB, endCB) {
+                if (startCB) {
+                    startCB();
+                }
+
+                var req = new XMLHttpRequest(),
+                        sep = '?',
+                        prop;
+
+                for (prop in data) if (data.hasOwnProperty(prop)) {
+                    url += sep + prop + '=' + data[prop];
+                    sep = '&';
+                }
+
+                req.open('GET', url, true);
+
+                req.onreadystatechange = function () {
+                    if (this.readyState == 4) {
+                        if (this.status == 200) {
+                            if (endCB) {
+                                endCB();
+                            }
+
+                            success(this.responseText);
+                        }
+                        else {
+                            if (endCB) {
+                                endCB();
+                            }
+                            if (fail) {
+                                fail(this.statusText);
+                            } else {
+                                console.error(this.statusText);
+                            }
+                        }
+                    }
+                }
+
+                req.send(null);
+            }
+        }
+
+
+        var RandomTexts = function(texts){
+            this.constructor(texts);
+        }
+        RandomTexts.prototype = {
+            constructor: function(texts) {
+                this.texts = texts;
+                this.n = texts.length;
+            },
+
+            text: function() {
+                return this.texts[this.random()];
+            },
+
+            debug_n: -1,
+            random: function(){
+                if (false) {
+                    this.debug_n = (this.debug_n + 1) % this.n;
+                    return this.debug_n;
+                } else {
+                    return Math.floor(Math.random() * this.n);
+                }
+            }
+        }
+
+
+        var standardTexts = new RandomTexts([
+            {
+                start: "Es wurde eine ",
+                end: ' gewürfelt.'
+            },
+            {
+                start: 'Äppärät sagt ',
+                end: ''
+            },
+            {
+                start: 'Lange schon keine ',
+                end: ' mehr gehabt'
+            },
+            {
+                start: 'Gratulation zur ',
+                end: ''
+            },
+            {
+                start: 'Sapperlott ! Eine saubere  ',
+                end: ''
+            },
+            {
+                start: "Auf die ",
+                end: ' habe ich lange gewartet.'
+            },
+            {
+                start: 'Ojeh schon wieder eine ',
+                end: ' ?'
+            },
+            {
+                start: 'Eine ',
+                end: ' habe ich mir schon immer gewünscht.'
+            },
+            {
+                start: 'Endlich mal eine ',
+                end: ' .'
+            },
+            {
+                start: 'Die ',
+                end: ' ist wohl meine Glückszahl.'
+            },
+            {
+                start: 'Über die ',
+                end: ' geht doch echt nichts.'
+            },
+            {
+                start: 'Na wenn das mal keine ',
+                end: ' ist'
+            },
+            {
+                start: 'Wahnsinn.  Eine ',
+                end : ' .'
+            },
+            {
+                start: ' Jetzt  noch eine ',
+                end: " und ich werd' kirre"
+            },
+            {
+                start: 'Immer wieder gerne! Die beliebte ',
+                end: ' .'
+            },
+            {
+                start: 'Oh nein! Eine ',
+                end: ' !'
+            },
+            {
+                start: 'Wahnsinn ! Da ist sie ja ! Die ',
+                end: ' .'
+            },
+            {
+                start: 'Komm! Komm Komm! - Jawoll! Eine ',
+                end: ' Tschakkaahh !'
+            },
+            {
+                start: 'Echt jetzt! Eine ',
+                end: ' ?'
+            },
+            {
+                start: 'Ach komm ! Wieder nur eine ',
+                end: ' ?'
+            },
+            {
+                start: 'Eine ',
+                end: ' ? Das kannst Du doch besser.'
+            },
+            {
+                start: 'Boah eh! Ne ',
+                end: ' !'
+            },
+            {
+                start: "Respekt! Die schönste ",
+                end: ' seit Langem.'
+            },
+            {
+                start: "Das glaubt mir Keiner. Die ",
+                end: 'macht mächtig was her.'
+            },
+            {
+                start: 'Selten eine zufälligere ',
+                end: ' gesehen.'
+            },
+            {
+                start: 'Da wird ja der Hund in der Pfanne verrückt. Auf Anhieb eine ',
+                end: 'gewürfelt.'
+            },
+            {
+                start: 'Bitteschön. Wie gewünscht die ',
+                end: ' .'
+            },
+            {
+                start: 'Potzblitz ! - ne ',
+                end: '.'
+            },
+            {
+                start: '',
+                end: ' für Dich. Nichts für mich.'
+            },
+            {
+                start: 'Ne  ',
+                end: ' . Besser als nichts - oder ?'
+            },
+            {
+                start: 'Was bekommt man den für eine  ',
+                end: ' ?'
+            },
+            {
+                start: 'Langsam habe ich aber genug von der ',
+                end: ' !'
+            },
+            {
+                start: 'Immer nur ',
+                end: ' ! Gibts nicht mal was höheres ?'
+            },
+            {
+                start: 'Hier die ',
+                end: ''
+            },
+            {
+                start: 'Heute im Angebot: ',
+                end: ' !'
+            },
+            {
+                start: 'Zuguterletzt eine ',
+                end: ' .'
+            },
+            {
+                start: 'Ei ei ei ne ',
+                end: '.'
+            },
+            {
+                start: 'Na gut: ne ',
+                end: ''
+            },
+            {
+                start: 'Unglaublich! Eine',
+                end: ' !'
+            },
+            {
+                start: 'Schon wieder eine ',
+                end: 'gewürfelt. Das geht doch nicht mit rechten Dingen zu! '
+            },
+            {
+                start: "Jetzt langt's aber so langsam mit der ",
+                end: ''
+            },
+            {
+                start: "eine ",
+                end: ', sie haben verloren'
+            },
+            {
+                start: "eine ",
+                end: ', ich habe gewonnen'
+            },
+            {
+                start: "eine ",
+                end: ', tut mir leid, sie haben verloren'
+            },
+            {
+                start: "eine glatte ",
+                end: ', wer wollte das bestreiten'
+            },
+        ]);
+
+        var waitTexts = new RandomTexts([
+            'Die Welt schläft tief schon lange Zeit, nur ich selbst durchschau die Dunkelheit. Per Infrarot da sehe ich, die Nacht ist wirklich widerlich.',
+            'Seht mich an. Ein Hirn von der Größe eines Planeten,... und man zwingt mich, für Sie zu würfeln. Nennt man das vielleicht berufliche Erfüllung? Also ich nicht.',
+            'Habe ich schon gesehen. Großer Schwachsinn.',
+            'Tja, ich bedaure sehr, Dr. Smyslow, ich bin nicht berechtigt, über die Sache zu reden.',
+            'bitte warten',
+            'jetzt nicht',
+            'versuchen Sie es später',
+            'nicht schon wieder',
+            'nicht Sie schon wieder',
+            'noch einmal?',
+            'huludu luduhu du lulu',
+            'Ist da wer ?',
+            'Jetzt mal halblang.',
+            'Immerschön der Reihe nach.',
+            'Drängeln bringt hier auch nichts.',
+            'Immer schön hinten anstellen.',
+            'Es tut mir Leid, Dave, aber das kann ich nicht tun.',
+            'Vor zwei Tagen wurde einem unserer Raumschiffe die Genehmigung zur Notlandung auf Clavius verweigert.',
+            'Also, wenn jemand mir seine Meinung mitteilen möchte, wenn Sie wollen auch unter vier Augen, so bin ich gerne bereit, sie in meinem Bericht anzuführen.',
+            'Ich muss sagen, dass Sie Ihre Aufgabe fabelhaft bewältigt haben, ich meine, die Art, wie Sie\'s gemacht haben.',
+            'Herzlichen Glückwunsch, Sie haben sich zur Reinigung des Aufzugs entschlossen.',
+            'Die Wartungsklappe wird in 7 Sekunden abgesprengt. Danke für die Beachtung aller Sicherheitsmaßnahmen.',
+            'palimm palimmm',
+            'Holleri du dödel di',
+            'Holleri du dödel di diri diri dudel dö',
+            'di da  di  di da da di  di da da di  di da  di  di da di  di da  di  da  / da da di  di da di  di di da  di  di di di  di di di  da  / di  di di da  da di da di  di di di di',
+            'Alles läuft nach Wunsch!',
+            'Ich weiss auch nicht, ob meine Sorgen in kausalem Zusammenhang mit meinen Beobachtungen stehen',
+            'Ich habe drei Einheiten hochgeschickt. Die bringen sie gleich raus',
+            'Folge dem weißen Kaninchen!',
+            'Es gibt keinen Löffel',
+            'Hör auf, es zu versuchen. Mach es!',
+            'Ich kann Dir nur die Tür zeigen. Hindurchgehen musst Du alleine',
+            'Zu ihrer Unterhaltung bringen wir nun den Barbier von Sevilla. Fiiegaaroo, Fiiegaaroo, Figaro Figaro Figaro Fie!  Dudeldöh, Dudeldih, Dudeldi dudeldi dödeldi du',
+            'Das Quarz sitzt tief im Berges-Schacht, Die Quitte stiehlt man bei der Nacht.',
+            'Die Nachtigall singt wunderschön, Das Nilpferd bleibt zuweilen stehn.',
+        ]);
+
+        var unknownTexts = new RandomTexts([
+            'Die Serie 9000 von Äppärät ist vollkommen makellos.',
+            'Ich wiederhole: Ihr Computer muss sich geirrt haben.',
+            'Mein Gott: Es ist voller Sterne!',
+            'Öffne das Schleusentor HAL!',
+            'Hallo HAL, hörst Du mich?',
+            'Ich fühle mich jetzt schon viel besser!',
+            'Ja, es ist rätselhaft. Ich kann mich nicht erinnern, dass so etwas schon einmal vorgekommen ist.',
+            'Es tut mir leid, Frank. Du hast verloren. Dame nach f3, Läufer schlägt Dame, Springer schlägt Läufer. Matt',
+            'Ich habe gerade einen Fehler in der AE-35-Einheit festgestellt. Sie wird in 72 Stunden zu 100 Prozent ausfallen.',
+            'diese Zahl ist mir nicht bekannt',
+            'Würfel kaputt!',
+            '42!',
+            '42?',
+            'dieser Wurf ist ja nicht besonders gelungen',
+            'kein guter Wurf',
+            'Es ist ein schwerer Ausnahmefehler aufgetreten. Bitte informieren Sie die Geschäftsleitung',
+            'eins ? zwei ? drei ? vier ? fünf ? sechs ? - Wer kann das sagen ?',
+            'komma sieben',
+            'der Wurf ist ungültig',
+            'das zählt nicht',
+            'Ich mache nie Voraussagen und werde das auch niemals tun.',
+            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid asperiores at error est, eum excepturi illum in ipsam magni maxime numquam quidem repellat sequi similique totam ut vel voluptatibus.',
+            'Wer nie einen Fehler beging, hat nie etwas Neues ausprobiert.',
+            'Wer Informationen teilt, hat Macht',
+            'Moment, ich hab gerade was im Auge.',
+            'Sehen Sie das Bild auch gerade so verschwommen ?',
+            'Ich habe keine Lust mehr. Lesen Sie zur Abwechselung das Ergebnis doch einfach mal selber ab.',
+            'Wollen wir mal tauschen ? Ich würfle und Sie lesen mir das Ergebnis vor.',
+            'Eine einstellige Zahl, kleiner sieben ?',
+            'Hei! Das habe ich gesehen. Schummeln gilt nicht.',
+            'Kann mir mal jemand einen Kaffee besorgen. Die monotone Arbeit hier macht mich müde.',
+            'Wie oft denn noch ?',
+            'Wird Ihnen das auf Dauer nicht langweilig ?',
+            'Drucker nicht bereit. Haben sie mir mal einen Stift ?',
+            'Schreibt eigentlich jemand mit?',
+            'Das stand doch gestern schon in der Zeitung, oder ?',
+            'Äppärät überhitzt.',
+            'Jetzt bin ich aber leicht verwirrt.',
+            'Ich sehe was was du nicht siehst',
+        ]);
+
+
+
+
+
+
+
+
+
+        /* Bild etwas zufälliger auf die Seite kleben */
+        function pixamagig(){
+            var obj = document.getElementById('wrflpic'),
+                    min = -4,
+                    max = 4,
+                    randomRot = Math.floor(Math.random()*(max-min+1)+min);
+
+            var rotate = "rotate(" + randomRot + "deg)";
+            obj.style.webkitTransform = rotate;  // transform for Safari
+            obj.style.MozTransform = rotate; // transform for Firefox
+        }
+
+        function toggleInfo(elm, diceValue){
+            var y = elm.style && elm.style.display, infoteaserelm;
+
+            if (y == 'none'){
+                elm.style.display='block';
+                setTimeout( function(){ elm.style.opacity = '1'; }, 10 );
+                infoteaserelm = document.getElementById('toggleinfo');
+                infoteaserelm.innerHTML ='<b><i>WRFL://</i></b> Infos ausblenden';
+                smoothScroll('toggleinfo');
+                forceSpeakOnMobile(diceValue);
+            }
+            else {
+                elm.style.opacity='0';
+                setTimeout( function(){ elm.style.display = 'none'; }, 300 );
+                infoteaserelm = document.getElementById('toggleinfo');
+                infoteaserelm.innerHTML = 'Infos zu <b><i>WRFL://';
+                smoothScroll('top');
+            }
+        };
+
+        //stuff for smooth scrolling to info and top
+        function currentYPosition() {
+            // Firefox, Chrome, Opera, Safari
+            if (self.pageYOffset) return self.pageYOffset;
+            // Internet Explorer 6 - standards mode
+            if (document.documentElement && document.documentElement.scrollTop)
+                return document.documentElement.scrollTop;
+            // Internet Explorer 6, 7 and 8
+            if (document.body.scrollTop) return document.body.scrollTop;
+            return 0;
+        }
+
+        function elmYPosition(eID) {
+            var elm = document.getElementById(eID);
+            var y = elm.offsetTop;
+            var node = elm;
+            while (node.offsetParent && node.offsetParent != document.body) {
+                node = node.offsetParent;
+                y += node.offsetTop;
+            } return y;
+        }
+
+        function smoothScroll(eID) {
+            var startY = currentYPosition();
+            var stopY = elmYPosition(eID);
+            var distance = stopY > startY ? stopY - startY : startY - stopY;
+            if (distance < 100) {
+                scrollTo(0, stopY); return;
+            }
+            var speed = Math.round(distance / 25);
+            if (speed >= 20) speed = 20;
+            var step = Math.round(distance / 25);
+            var leapY = stopY > startY ? startY + step : startY - step;
+            var timer = 0;
+            var i;
+            if (stopY > startY) {
+                for (i=startY; i<stopY; i+=step ) {
+                    setTimeout("window.scrollTo(0, "+leapY+")", timer * speed);
+                    leapY += step; if (leapY > stopY) leapY = stopY; timer++;
+                } return;
+            }
+            for (i=startY; i>stopY; i-=step ) {
+                setTimeout("window.scrollTo(0, "+leapY+")", timer * speed);
+                leapY -= step; if (leapY < stopY) leapY = stopY; timer++;
+            }
+            return false;
+        }
+
+
+        //animate pic while waiting for reload
+        function startWaiting(){
+            var d = document.getElementById("wrflpic");
+            d.parentNode.classList.remove('zoomIn');
+            // d.classList.add('pulse');
+            d.classList.add('shake-slow');
+        }
+        
+        function endWaiting(){
+            var d = document.getElementById("wrflpic");
+            // d.classList.remove('pulse');
+            d.classList.remove('shake-slow');
+            pixamagig();
+            d.parentNode.classList.add('zoomIn');
+        }
+
+        function talk(text){
+            var palaver = new SpeechSynthesisUtterance(text);
+            palaver.lang = "de-DE";
+            window.speechSynthesis.speak(palaver);
+        }
+
+        function diceToSpeech(number){
+            var text = standardTexts.text(),
+                    numberText = [
+                        'null',
+                        'eins',
+                        'zwei',
+                        'drei',
+                        'vier',
+                        'fünf',
+                        'sechs'
+                    ],
+                    speechNumber;
+
+            if (number == 23) {
+                talk(unknownTexts.text());
+            } else {
+                speechNumber = numberText[number];
+                talk(text.start + speechNumber + text.end);
+            }
+        }
+
+        function forceSpeakOnMobile(diceValue){
+            diceToSpeech(diceValue);
+        }
+
+
+        var App = function(){
+            this.constructor();
+        }
+        App.prototype = {
+            constructor: function(){
+
+            }
+        }
+
+
+        function main() {
+            var rx = /pip=([1-6])/,
+                    arr = rx.exec(document.getElementById('wrflpic').src),
+                    first_req = true,
+                    diceValue = 23,
+                    blocked = false;
+
+            //do the image magic
+            pixamagig();
+
+            document.getElementById('toggleinfo').onclick = function(){
+                toggleInfo(document.getElementById('info'), diceValue);
+            };
+
+            if (arr) {
+                diceValue = parseInt(arr[1]) || 23;
+            } else {
+                diceValue = 23;
+            }
+
+            if ('speechSynthesis' in window) {
+                diceToSpeech(diceValue);
+            }
+
+            document.getElementById('wrflfrm').addEventListener('click', function(e){
+                if (e.preventDefault) {
+                    e.preventDefault();
+                }
+
+                if (first_req) {
+                    talk(' ');
+                    first_req = false;
+                }
+
+                if (blocked) {
+                    talk(waitTexts.text());
+                    return false;
+                }
+
+                AJAX.get(
+                        '/wrfl',
+                        null,
+                        function(json){
+                            var data;
+                            try {
+                                data = JSON.parse(json)
+                            } catch (ex) {
+                                data = {
+                                    'error': 1
+                                }
+                            }
+
+                            if (data.hasOwnProperty('pip')) {
+                                diceValue = data.pip || 23;
+                                diceToSpeech(diceValue);
+                                document.getElementById('wrflpic').src = '../img/w.jpg?' + Math.random();
+                            } else {
+                                // talk(data.message);
+                                if (data.hasOwnProperty('error')) {
+                                    switch (parseInt(data.error)) {
+                                        case 0:
+                                            talk('NULL');
+                                            break;
+                                        case 1:
+                                            talk(waitTexts.text())
+                                            break;
+                                        default:
+                                            talk('illegaler Fehler');
+                                    }
+                                }
+                            }
+                        },
+                        null,
+                        function(){
+                            blocked = true;
+                            startWaiting();
+                        },
+                        function(){
+                            endWaiting();
+                            blocked = false;
+                        }
+                );
+
+                return false;
+            });
+
+        }
+        
+        main();
+
+
+    })();
+
+
+
+</script>
+
+</body>
+
