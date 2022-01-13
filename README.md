@@ -10,6 +10,12 @@ WRFL würfelt eine Zahl mit einem handelsüblichen Würfel. Die gewürfelte Zahl
 ### Moderne
 Die gewürfelte Zahl wird mittels Bilderkennung (Open CV) ermittelt und die erkannte Zahl auf twitter gepostet (samt Bild)
 
+### Links
+https://twitter.com/KombinatApparat/
+https://www.youtube.com/watch?v=YCVZGALnWWs
+https://www.youtube.com/watch?v=8gNur-V3W1g
+
+
 ## Hardware
 * Raspberry Pi
 * RaspiCam 
