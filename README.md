@@ -5,7 +5,7 @@ WRFL ist eine Installation, welche Tradition (Würfel) und Moderne (Internet) mi
 ## Was macht das?
 
 ### Tradition
-WRFL würfelt eine Zahl mit einem handelsüblichen Würfel. Die gewürfelte Zahl wird mit einer Kamera erfasst
+WRFL würfelt eine Zahl mit einem handelsüblichen Würfel. Das Ergebnis wird mit einer Kamera erfasst
 
 ### Moderne
 Die gewürfelte Zahl wird mittels Bilderkennung (Open CV) ermittelt und die erkannte Zahl auf twitter gepostet (samt Bild)
