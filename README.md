@@ -14,6 +14,8 @@ Die gewürfelte Zahl wird mittels Bilderkennung (Open CV) ermittelt und die erka
 * https://twitter.com/KombinatApparat/
 * https://www.youtube.com/watch?v=YCVZGALnWWs
 * https://www.youtube.com/watch?v=8gNur-V3W1g
+* https://www.artig.st/kunstpreis/artig-kunstpreis-2016-werke/
+* https://www.yumpu.com/de/document/read/55374204/artig-kunstpreis-2016-katalog-zur-ausstellung/39
 
 
 ## Hardware
